@@ -4,7 +4,7 @@
  */
 public class Program {
     public static void main(String[] args) throws Exception {
-        String exp = "(1+2*3)*(-1)";
+        String exp = "(((5-1)*2)/4)*(-1)";
         Validation validation = new Validation(exp);
         String afterValid = validation.formatting();
         System.out.println(afterValid);
