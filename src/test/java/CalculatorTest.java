@@ -1,11 +1,12 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 class CalculatorTest {
 
     Calculator calculator;
     Validation validation;
-    String rpnExpression;
-    double answer;
+    String newRPN;
+    double newAnswer;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() throws Exception {
@@ -17,18 +18,22 @@ class CalculatorTest {
 
         calculator = new Calculator(afterValid);
 
-        rpnExpression = calculator.expressionToRPN();
+        newRPN = calculator.expressionToRPN();
 
-        answer = calculator.rpnToAnswer(rpnExpression);
+        newAnswer = calculator.rpnToAnswer(newRPN);
     }
 
     @org.junit.jupiter.api.Test
     void expressionToRPN() {
-        assertEquals("5 1- 2* 4/ 0 1-*", rpnExpression);
+        String correctRPN = "5 1- 2* 4/ 0 1-*";
+        assertThat(newRPN, notNullValue());
+        assertThat(correctRPN, is(newRPN));
     }
 
     @org.junit.jupiter.api.Test
     void rpnToAnswer() {
-        assertEquals(-2.0, answer);
+        double correctAnswer = -2.0;
+        assertThat(newAnswer, notNullValue());
+        assertThat(correctAnswer, is(newAnswer));
     }
 }
