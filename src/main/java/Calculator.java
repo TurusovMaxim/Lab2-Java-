@@ -1,7 +1,9 @@
 import java.util.Stack;
 
 /**
- *
+ * Describes the basic operations for using the calculator.
+ * Based on Dijkstra's Algorithm.
+ * https://en.wikipedia.org/wiki/Shunting-yard_algorithm
  */
 public class Calculator {
 
